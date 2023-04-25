@@ -27,7 +27,7 @@ def natlex(**kwargs):
 
 def ransample(**kwargs):
     '''
-    samples from the dictionary of words with 'asps' and 'ejecs' information (see 'larlex')
+    samples N times from the dictionary of words, and counts words in the sample that have segments from some pre-specified natural class (e.g., 'asps' and 'ejecs') (see 'natlex')
     the number of samples is given in kwargs
     '''
     wdic = kwargs['wdic']
@@ -91,6 +91,7 @@ def chisq(nums):
 
 
 if __name__=='__main__':
+    print("\nThe utility will print out a natural class plus how often segments from that class occur in a randomly drawn sample of 76 morphemes. (The "76" number is how many affixes are attested in Gallagher's newspaper corpus of Quechua).\n\nNote: you will have to close each histogram plot manually for the program to advance.")
     kwargs={}
     asps = 'pʰ tʰ kʰ ʧʰ qʰ'.split()
     ejecs = "p' t' k' ʧ' q'".split()
@@ -105,8 +106,8 @@ if __name__=='__main__':
     sibs = ['s', 'ʃ']
     labstops = ['p', "p'", "pʰ"]
     liqs = ['l', 'r', 'ʎ']
-    #natclasses = [asps, ejecs, asps+ejecs, plains, nasals, uvulars, velars, liqs, frics, affricates, ['h'], asps+ejecs+['h']]
-    natclasses=[liqs]
+    natclasses = [asps, ejecs, asps+ejecs, plains, nasals, uvulars, velars, liqs, frics, affricates, ['h'], asps+ejecs+['h']]
+    #natclasses=[liqs]
     if 'counts' in sys.argv:
         kwargs['infile']=sys.argv[1]
     else: 
